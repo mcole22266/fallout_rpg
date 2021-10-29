@@ -1,0 +1,5 @@
+# python ignores
+*.pyc
+
+# vscode ignores
+settings.json
