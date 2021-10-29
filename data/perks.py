@@ -1,3 +1,9 @@
+# perks.py
+# Michael Cole <mcole042891.prof.dev@gmail.com>
+#
+# List of all perks in the game
+# ---------------------------------------------
+
 from models.Perk import Perk
 
 perksList = [

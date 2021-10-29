@@ -1,3 +1,9 @@
+# guns.py
+# Michael Cole <mcole042891.prof.dev@gmail.com>
+#
+# List of all guns in the game
+# ---------------------------------------------
+
 from models.Gun import Gun
 
 gunList = [

@@ -1,3 +1,9 @@
+# Ammunition.py
+# Michael Cole <mcole042891.prof.dev@gmail.com>
+#
+# Ammunition Model
+# -----------------------------------------------
+
 class Ammunition:
 
     def __init__(self, name, cost, rarity, description):

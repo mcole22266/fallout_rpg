@@ -1,3 +1,9 @@
+# ammo.py
+# Michael Cole <mcole042891.prof.dev@gmail.com>
+#
+# List of all ammunitions in the game
+# ---------------------------------------------
+
 from models.Ammunition import Ammunition
 
 ammoList = [

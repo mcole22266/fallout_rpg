@@ -1,3 +1,9 @@
+# Perk.py
+# Michael Cole <mcole042891.prof.dev@gmail.com>
+#
+# Perk Model
+# -----------------------------------------------
+
 class Perk:
 
     def __init__(self, name, numRanks, requirements, description):
