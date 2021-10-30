@@ -17,14 +17,18 @@ class Session:
         self.characters = []
         self.ap_pool = 6
         self.sessionName = None
+        self.generateSavedSessionFilename()
 
-        self.saveLocation = f'./src/data/saved_data/session/{self.sessionName}.pkl'
+    def generateSavedSessionFilename(self):
+        self.saveLocation = f'./src/data/saved_data/sessions/{self.sessionName}.pkl'
 
     def loadSession(self, sessionName=None):
         if not sessionName:
             # Get name of session to load from user
             sessionName = input('Provide the Session Name to load\n> ')
 
+        self.sessionName = sessionName
+        self.generateSavedSessionFilename()
         object = load_object(self.saveLocation)
 
         # Assign current sessions attributes to match the loaded session
@@ -42,6 +46,9 @@ class Session:
             sessionName = f'{sessionName}'
 
         self.sessionName = sessionName
+        print(self.saveLocation)
+        self.generateSavedSessionFilename()
+        print(self.saveLocation)
         save_object(self, self.saveLocation)
         print(f'Session {sessionName} saved successfully')
 

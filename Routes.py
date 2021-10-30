@@ -147,3 +147,17 @@ class Routes:
                 title='Character Sheet',
                 character=character
                 )
+
+        @app.route('/character/save/<characterName>')
+        def charactersave(characterName):
+
+            character = Character()
+
+            character.loadCharacter(characterName)
+            character.saveCharacter()
+
+            return render_template(
+                'charactersheet.html',
+                title='Character Sheet',
+                character=character
+                )

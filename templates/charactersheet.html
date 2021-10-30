@@ -3,8 +3,32 @@
 {% block content %}
 
     <div class="container-fluid">
-        <h1>{{ character.name }}</h1>
-        <h5>Lvl {{ character.lvl }} - {{ character.origin }}</h5>
+        <div class="row">
+            <h1>{{ character.name }}</h1>
+        </div>
+        <div class="row">
+            <h5>Lvl {{ character.lvl }} - {{ character.origin }}</h5>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button
+                    class="btn btn-primary btn-sm"
+                    onclick='location.href="/character/save/{{ character.name }}";'
+                    type="button">
+
+                    Save Character
+                </button>
+            </div>
+            <div class="col">
+                <button
+                    class="btn btn-primary btn-sm"
+                    onclick='location.href="/character/edit/{{ character.name }}";'
+                    type="button">
+
+                    Edit Character
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="container-fluid">

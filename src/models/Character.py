@@ -9,7 +9,7 @@ from src.helpers.persistance import save_object, load_object
 
 class Character:
 
-    def __init__(self, name, lvl=1):
+    def __init__(self, name=None, lvl=1):
         self.name = name
         self.lvl = lvl
         self.origin = None
@@ -49,6 +49,9 @@ class Character:
         self.setDerivedStatistics()
 
         # Persistence
+        self.generateSavedCharacterFilename()
+
+    def generateSavedCharacterFilename(self):
         self.saveLocation = f'./src/data/saved_data/characters/{self.name}.pkl'
 
     def setDerivedStatistics(self):
@@ -60,13 +63,17 @@ class Character:
 
     def saveCharacter(self):
 
+        self.generateSavedCharacterFilename()
         save_object(self, self.saveLocation)
         print(f'Character {self.name} saved successfully')
 
     def loadCharacter(self, charName=None):
         if not charName:
             charName = self.name
+        if not self.name:
+            self.name = charName
 
+        self.generateSavedCharacterFilename()
         object = load_object(self.saveLocation)
 
         # Assign current characters attributes to match the loaded character
