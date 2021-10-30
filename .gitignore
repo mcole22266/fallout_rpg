@@ -3,3 +3,6 @@
 
 # vscode ignores
 settings.json
+
+# project ignores
+*.pkl
