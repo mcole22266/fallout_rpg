@@ -55,13 +55,10 @@ class Character:
         self.damage_resistance = 0
         self.hp_max = self.endurance + self.luck
 
-    def saveCharacter(self, charName=None):
-        if not charName:
-            charName = self.name
+    def saveCharacter(self):
 
-        self.charName = charName
-        save_object(self, f'./src/saved_data/characters/{charName}.pkl')
-        print(f'Character {charName} saved successfully')
+        save_object(self, f'./src/data/saved_data/characters/{self.name}.pkl')
+        print(f'Character {self.name} saved successfully')
 
     def loadCharacter(self, charName=None):
         if not charName:

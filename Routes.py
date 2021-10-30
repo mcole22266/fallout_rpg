@@ -53,7 +53,9 @@ class Routes:
             sessions = []
 
             for f in os.listdir('./src/data/saved_data/sessions'):
-                if os.path.isfile(os.path.join('./src/data/saved_data/sessions', f)):
+                if os.path.isfile(
+                    os.path.join('./src/data/saved_data/sessions',
+                                 f)):
                     sessions.append(f.split('.')[0])
 
             sessions.sort()
@@ -70,7 +72,9 @@ class Routes:
             sessions = []
 
             for f in os.listdir('./src/data/saved_data/sessions'):
-                if os.path.isfile(os.path.join('./src/data/saved_data/sessions', f)):
+                if os.path.isfile(
+                    os.path.join('./src/data/saved_data/sessions',
+                                 f)):
                     sessions.append(f.split('.')[0])
 
             sessions.sort()
@@ -89,7 +93,9 @@ class Routes:
             sessions = []
 
             for f in os.listdir('./src/data/saved_data/sessions'):
-                if os.path.isfile(os.path.join('./src/data/saved_data/sessions', f)):
+                if os.path.isfile(
+                    os.path.join('./src/data/saved_data/sessions',
+                                 f)):
                     sessions.append(f.split('.')[0])
 
             sessions.sort()
@@ -115,6 +121,7 @@ class Routes:
         def createCharacter():
 
             character = Character('Test Character')
+            character.saveCharacter()
 
             sessionName = request.args.get('sessionName')
             session = Session()
