@@ -1,6 +1,7 @@
 import os
 
 from flask import render_template, request, redirect
+from forms.CharacterEditForm import CharacterEditForm
 from forms.SessionCreateForm import SessionCreateForm
 from src.models.Character import Character
 from src.models.Session import Session
@@ -160,4 +161,23 @@ class Routes:
                 'charactersheet.html',
                 title='Character Sheet',
                 character=character
+                )
+
+        @app.route('/character/edit/<characterName>')
+        def characteredit(characterName):
+
+            character = Character()
+            character.loadCharacter(characterName)
+
+            form = CharacterEditForm()
+            if form.validate_on_submit():
+                character.name = request.form['name']
+
+                return redirect(f'/character/sheet/{characterName}')
+
+            return render_template(
+                'characteredit.html',
+                title=f'Character Edit - {character.name}',
+                character=character,
+                form=form
                 )

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h1>Character Edit Form</h1>
+
+    <hr>
+
+    <form method='POST' action='/character/sheet/{{ character.name }}'>
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name(class_='form-control', value=character.name) }}
+        </div>
+        {{ form.submit(class_='btn btn-primary btn-lg') }}
+    </form>
+
+{% endblock %}
