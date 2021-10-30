@@ -27,8 +27,9 @@ class Routes:
             if form.validate_on_submit():
                 sessionName = request.form['sessionName']
                 session = Session()
+                session.sessionName = sessionName
                 session.saveSession(sessionName)
-                return redirect(f'/session/sheet/{sessionName}')
+                return redirect(f'/session/sheet/{session.savedID}')
 
             return render_template(
                 'sessioncreateform.html',
@@ -57,9 +58,10 @@ class Routes:
                 if os.path.isfile(
                     os.path.join('./src/data/saved_data/sessions',
                                  f)):
-                    sessions.append(f.split('.')[0])
-
-            sessions.sort()
+                    sessionID = f.split('.')[0]
+                    session = Session()
+                    session.loadSession(sessionID)
+                    sessions.append(session)
 
             return render_template(
                 'loadsession.html',
@@ -76,9 +78,10 @@ class Routes:
                 if os.path.isfile(
                     os.path.join('./src/data/saved_data/sessions',
                                  f)):
-                    sessions.append(f.split('.')[0])
-
-            sessions.sort()
+                    sessionID = f.split('.')[0]
+                    session = Session()
+                    session.loadSession(sessionID)
+                    sessions.append(session)
 
             return render_template(
                 'deletesession.html',
@@ -86,10 +89,10 @@ class Routes:
                 sessions=sessions
             )
 
-        @app.route('/session/delete/<sessionName>')
-        def deleteSessionAction(sessionName):
+        @app.route('/session/delete/<sessionID>')
+        def deleteSessionAction(sessionID):
 
-            os.remove(f'./src/data/saved_data/sessions/{sessionName}.pkl')
+            os.remove(f'./src/data/saved_data/sessions/{sessionID}.pkl')
 
             sessions = []
 
@@ -107,10 +110,10 @@ class Routes:
                 sessions=sessions
             )
 
-        @app.route('/session/sheet/<sessionName>')
-        def sessionsheet(sessionName):
+        @app.route('/session/sheet/<sessionID>')
+        def sessionsheet(sessionID):
             session = Session()
-            session.loadSession(sessionName=sessionName)
+            session.loadSession(sessionID)
 
             return render_template(
                 'sessionsheet.html',
@@ -121,12 +124,12 @@ class Routes:
         @app.route('/character/create')
         def createCharacter():
 
-            character = Character('Test Character')
+            character = Character('Default Character')
             character.saveCharacter()
 
-            sessionName = request.args.get('sessionName')
+            sessionID = request.args.get('sessionID')
             session = Session()
-            session.loadSession(sessionName)
+            session.loadSession(sessionID)
             session.characters.append(character)
             session.saveSession(session.sessionName)
 
@@ -136,12 +139,12 @@ class Routes:
                 character=character
                 )
 
-        @app.route('/character/sheet/<characterName>')
-        def charactersheet(characterName):
+        @app.route('/character/sheet/<characterID>')
+        def charactersheet(characterID):
 
             character = Character(None)
 
-            character.loadCharacter(characterName)
+            character.loadCharacter(characterID)
 
             return render_template(
                 'charactersheet.html',
@@ -149,12 +152,12 @@ class Routes:
                 character=character
                 )
 
-        @app.route('/character/save/<characterName>')
-        def charactersave(characterName):
+        @app.route('/character/save/<characterID>')
+        def charactersave(characterID):
 
             character = Character()
 
-            character.loadCharacter(characterName)
+            character.loadCharacter(characterID)
             character.saveCharacter()
 
             return render_template(
@@ -163,17 +166,17 @@ class Routes:
                 character=character
                 )
 
-        @app.route('/character/edit/<characterName>')
-        def characteredit(characterName):
+        @app.route('/character/edit/<characterID>')
+        def characteredit(characterID):
 
             character = Character()
-            character.loadCharacter(characterName)
+            character.loadCharacter(characterID)
 
             form = CharacterEditForm()
             if form.validate_on_submit():
                 character.name = request.form['name']
 
-                return redirect(f'/character/sheet/{characterName}')
+                return redirect(f'/character/sheet/{characterID}')
 
             return render_template(
                 'characteredit.html',

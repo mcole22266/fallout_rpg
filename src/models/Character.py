@@ -4,12 +4,15 @@
 # Character Model
 # -----------------------------------------------
 
+from random import randint
+
 from src.helpers.persistance import save_object, load_object
 
 
 class Character:
 
     def __init__(self, name=None, lvl=1):
+        self.savedID = ''.join([str(randint(0, 9)) for _ in range(15)])
         self.name = name
         self.lvl = lvl
         self.origin = None
@@ -52,7 +55,7 @@ class Character:
         self.generateSavedCharacterFilename()
 
     def generateSavedCharacterFilename(self):
-        self.saveLocation = f'./src/data/saved_data/characters/{self.name}.pkl'
+        self.saveLocation = f'./src/data/saved_data/characters/{self.savedID}.pkl'
 
     def setDerivedStatistics(self):
         self.carry_weight = 150 + (self.strength * 10)
@@ -67,12 +70,9 @@ class Character:
         save_object(self, self.saveLocation)
         print(f'Character {self.name} saved successfully')
 
-    def loadCharacter(self, charName=None):
-        if not charName:
-            charName = self.name
-        if not self.name:
-            self.name = charName
+    def loadCharacter(self, savedID=None):
 
+        self.savedID = savedID
         self.generateSavedCharacterFilename()
         object = load_object(self.saveLocation)
 

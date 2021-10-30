@@ -9,10 +9,10 @@
     {% for session in sessions %}
         <button
             class="btn btn-danger btn-lg btn-block"
-            onclick='location.href="/session/delete/{{ session }}";'
+            onclick='location.href="/session/delete/{{ session.savedID }}";'
             type="button">
 
-            Session: {{ session }}
+            {{ session.sessionName }}
         </button>
     {% endfor %}
 

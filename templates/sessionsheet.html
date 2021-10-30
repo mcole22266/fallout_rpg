@@ -9,7 +9,7 @@
 
         <button
             class="btn btn-primary btn-lg"
-            onclick='location.href="/character/create?sessionName={{ session.sessionName }}";'
+            onclick='location.href="/character/create?sessionID={{ session.savedID }}";'
             type="button">
 
             Create Character
@@ -18,7 +18,7 @@
         <h4>Characters</h4>
         <ul>
             {% for character in session.characters %}
-                <li><a href='/character/sheet/{{ character.name }}'>{{ character.name }}</a></li>
+                <li><a href='/character/sheet/{{ character.savedID }}'>{{ character.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
