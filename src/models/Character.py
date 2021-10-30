@@ -48,6 +48,9 @@ class Character:
         # Derived Statistics
         self.setDerivedStatistics()
 
+        # Persistence
+        self.saveLocation = f'./src/data/saved_data/characters/{self.name}.pkl'
+
     def setDerivedStatistics(self):
         self.carry_weight = 150 + (self.strength * 10)
         self.initiative = self.perception + self.agility
@@ -57,14 +60,14 @@ class Character:
 
     def saveCharacter(self):
 
-        save_object(self, f'./src/data/saved_data/characters/{self.name}.pkl')
+        save_object(self, self.saveLocation)
         print(f'Character {self.name} saved successfully')
 
     def loadCharacter(self, charName=None):
         if not charName:
             charName = self.name
 
-        object = load_object(f'./src/data/saved_data/characters/{charName}.pkl')
+        object = load_object(self.saveLocation)
 
         # Assign current characters attributes to match the loaded character
         self.name = object.name

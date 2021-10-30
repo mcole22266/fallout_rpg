@@ -18,12 +18,14 @@ class Session:
         self.ap_pool = 6
         self.sessionName = None
 
+        self.saveLocation = f'./src/data/saved_data/session/{self.sessionName}.pkl'
+
     def loadSession(self, sessionName=None):
         if not sessionName:
             # Get name of session to load from user
             sessionName = input('Provide the Session Name to load\n> ')
 
-        object = load_object(f'./src/data/saved_data/sessions/{sessionName}.pkl')
+        object = load_object(self.saveLocation)
 
         # Assign current sessions attributes to match the loaded session
         self.session_start = object.session_start
@@ -40,7 +42,7 @@ class Session:
             sessionName = f'{sessionName}'
 
         self.sessionName = sessionName
-        save_object(self, f'./src/data/saved_data/sessions/{sessionName}.pkl')
+        save_object(self, self.saveLocation)
         print(f'Session {sessionName} saved successfully')
 
     def createCharacter(self):
