@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h1>Session Create Form</h1>
+
+    <hr>
+
+    <form method='POST' action='{{ url_for("createSession") }}'>
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.sessionName.label }}
+            {{ form.sessionName(class_='form-control') }}
+        </div>
+        {{ form.submit(class_='btn btn-primary btn-lg') }}
+    </form>
+
+{% endblock %}

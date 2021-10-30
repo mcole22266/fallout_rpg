@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h1>Delete Existing Session</h1>
+
+    <h3>Choose a session to delete</h3>
+
+    {% for session in sessions %}
+        <button
+            class="btn btn-danger btn-lg btn-block"
+            onclick='location.href="/session/delete/{{ session }}";'
+            type="button">
+
+            Session: {{ session }}
+        </button>
+    {% endfor %}
+
+{% endblock %}

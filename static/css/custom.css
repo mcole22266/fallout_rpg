@@ -1,0 +1,18 @@
+.special-row, .skill-col, .derived-statistics-col {
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.special-row .card-body {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.special-row .card-title {
+    font-size: 10pt;
+}
+
+.special-row .card-text {
+    font-size: 16pt;
+}

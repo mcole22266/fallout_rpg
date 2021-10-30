@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <h1>Session</h1>
+        <h4>Start: {{ session.session_start }}</h4>
+        <h4>Action Points: {{ session.ap_pool }}</h4>
+
+        <button
+            class="btn btn-primary btn-lg"
+            onclick='location.href="/character/create?sessionName={{ session.sessionName }}";'
+            type="button">
+
+            Create Character
+        </button>
+
+        <h4>Characters</h4>
+        <ul>
+            {% for character in session.characters %}
+                <li><a href='/character/sheet/{{ character }}'>{{ character.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

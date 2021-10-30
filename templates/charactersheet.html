@@ -1,0 +1,148 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <h1>{{ character.name }}</h1>
+        <h5>Lvl {{ character.lvl }} - {{ character.origin }}</h5>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row special-row">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">STR</p>
+                        <p class="card-text">{{ character.strength }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">PER</p>
+                        <p class="card-text">{{ character.perception }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">END</p>
+                        <p class="card-text">{{ character.endurance }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">CHA</p>
+                        <p class="card-text">{{ character.charisma }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">INT</p>
+                        <p class="card-text">{{ character.intelligence }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">AGI</p>
+                        <p class="card-text">{{ character.agility }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">LCK</p>
+                        <p class="card-text">{{ character.luck }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row stats-row">
+
+            <div class="col-lg skill-col">
+                <div class="row skill-row">
+                    <p class="skill">Athletics: {{ character.athletics }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Barter: {{ character.barter }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Big Guns: {{ character.big_guns }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Energy Weapons: {{ character.energy_weapons }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Explosives: {{ character.explosives }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Lockpick: {{ character.lockpick }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Medicine: {{ character.medicine }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Melee Weapons: {{ character.melee_weapons }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Pilot: {{ character.pilot }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Repair: {{ character.repair }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Science: {{ character.science }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Small Guns: {{ character.small_guns }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Sneak: {{ character.sneak }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Speech: {{ character.speech }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Survival: {{ character.survival }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Throwing: {{ character.throwing }}</p>
+                </div>
+                <div class="row skill-row">
+                    <p class="skill">Unarmed: {{ character.unarmed }}</p>
+                </div>
+            </div>
+
+            <div class="col-lg derived-statistics-col">
+                <div class="row derived-row">
+                    <p class="derived">Carry Weight: {{ character.carry_weight }}</p>
+                </div>
+                <div class="row derived-row">
+                    <p class="derived">Intiative: {{ character.initiative}}</p>
+                </div>
+                <div class="row derived-row">
+                    <p class="derived">Defense: {{ character.defense }}</p>
+                </div>
+                <div class="row derived-row">
+                    <p class="derived">Damage Resistance: {{ character.damage_resistance }}</p>
+                </div>
+                <div class="row derived-row">
+                    <p class="derived">HP Max: {{ character.hp_max }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

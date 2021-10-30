@@ -30,7 +30,10 @@ def rollDice(numSides=20, numDice=1, modifier=0):
     return total + modifier
 
 
-def skillTest(targetNumber, difficulty, dicePool=2, tagSkillNum=0, complicationsNum=20):
+def skillTest(
+    targetNumber, difficulty, dicePool=2,
+    tagSkillNum=0, complicationsNum=20
+):
     '''
     Perform a standard 2d20 system Skill Test
 
@@ -85,7 +88,7 @@ def skillTest(targetNumber, difficulty, dicePool=2, tagSkillNum=0, complications
             pass
 
     # Determine if pass the skill test
-    if skillTestResults['successes'] >= targetNumber:
+    if skillTestResults['successes'] >= difficulty:
         skillTestResults['passedTest'] = True
 
     # Return results

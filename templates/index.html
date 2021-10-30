@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h1>Fallout RPG Tool</h1>
+
+    <hr>
+    <h2>Sessions</h2>
+
+    <button
+        class="btn btn-primary btn-lg btn-block"
+        onclick='location.href="/session/create";'
+        type="button">
+
+        Create New Session
+    </button>
+
+    <button
+        class="btn btn-primary btn-lg btn-block"
+        onclick='location.href="/session/load";'
+        type="button">
+
+        Load Existing Session
+    </button>
+
+    <button
+        class="btn btn-primary btn-lg btn-block"
+        onclick='location.href="/session/delete";'
+        type="button">
+
+        Delete Existing Session
+    </button>
+
+{% endblock %}
