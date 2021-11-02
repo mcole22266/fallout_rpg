@@ -166,7 +166,7 @@ class Routes:
                 character=character
                 )
 
-        @app.route('/character/edit/<characterID>')
+        @app.route('/character/edit/<characterID>', methods=['GET', 'POST'])
         def characteredit(characterID):
 
             character = Character()
@@ -175,8 +175,65 @@ class Routes:
             form = CharacterEditForm()
             if form.validate_on_submit():
                 character.name = request.form['name']
+                character.lvl = int(request.form['lvl'])
+                character.origin = request.form['origin']
+                character.strength = int(request.form['str'])
+                character.perception = int(request.form['per'])
+                character.endurance = int(request.form['end'])
+                character.charisma = int(request.form['cha'])
+                character.intelligence = int(request.form['int'])
+                character.agility = int(request.form['agi'])
+                character.luck = int(request.form['lck'])
+                character.athletics = int(request.form['athletics'])
+                character.barter = int(request.form['barter'])
+                character.big_guns = int(request.form['big_guns'])
+                character.energy_weapons = int(request.form['energy_weapons'])
+                character.explosives = int(request.form['explosives'])
+                character.lockpick = int(request.form['lockpick'])
+                character.medicine = int(request.form['medicine'])
+                character.melee_weapons = int(request.form['melee_weapons'])
+                character.pilot = int(request.form['pilot'])
+                character.repair = int(request.form['repair'])
+                character.science = int(request.form['science'])
+                character.small_guns = int(request.form['small_guns'])
+                character.sneak = int(request.form['sneak'])
+                character.speech = int(request.form['speech'])
+                character.survival = int(request.form['survival'])
+                character.throwing = int(request.form['throwing'])
+                character.unarmed = int(request.form['unarmed'])
+
+                character.saveCharacter()
 
                 return redirect(f'/character/sheet/{characterID}')
+
+            form.lvl.default = character.lvl
+            form.origin.default = character.origin
+            form.str.default = character.strength
+            form.per.default = character.perception
+            form.end.default = character.endurance
+            form.cha.default = character.charisma
+            form.int.default = character.intelligence
+            form.agi.default = character.agility
+            form.lck.default = character.luck
+            form.athletics.default = character.athletics
+            form.barter.default = character.barter
+            form.big_guns.default = character.big_guns
+            form.energy_weapons.default = character.energy_weapons
+            form.explosives.default = character.explosives
+            form.lockpick.default = character.lockpick
+            form.medicine.default = character.medicine
+            form.melee_weapons.default = character.melee_weapons
+            form.pilot.default = character.pilot
+            form.repair.default = character.repair
+            form.science.default = character.science
+            form.small_guns.default = character.small_guns
+            form.sneak.default = character.sneak
+            form.speech.default = character.speech
+            form.survival.default = character.survival
+            form.throwing.default = character.throwing
+            form.unarmed.default = character.unarmed
+
+            form.process()
 
             return render_template(
                 'characteredit.html',

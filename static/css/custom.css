@@ -1,8 +1,8 @@
-.special-row, .skill-col, .derived-statistics-col {
+/* .special-row, .skill-col, .derived-statistics-col {
     border: black;
     border-style: solid;
     border-width: 1px;
-}
+} */
 
 .special-row .card-body {
     text-align: center;
@@ -15,4 +15,28 @@
 
 .special-row .card-text {
     font-size: 16pt;
+}
+
+.special-input {
+    width: 12%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-input-row1 {
+    width: 14%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-input-row2 {
+    width: 14%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-input-row3 {
+    width: 16%;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -6,13 +6,141 @@
 
     <hr>
 
-    <form method='POST' action='/character/sheet/{{ character.name }}'>
-        {{ form.csrf_token }}
-        <div class="form-group">
-            {{ form.name.label }}
-            {{ form.name(class_='form-control', value=character.name) }}
-        </div>
-        {{ form.submit(class_='btn btn-primary btn-lg') }}
-    </form>
+    <div class="container-fluid">
+
+        <form method='POST' action='/character/edit/{{ character.savedID }}'>
+            {{ form.csrf_token }}
+
+            {% if form.errors %}
+                {{ form.errors }}
+            {% endif %}
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    {{ form.name.label }}
+                    {{ form.name(class_='form-control', value=character.name) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.lvl.label }}
+                    {{ form.lvl(class_='form-control', value=character.lvl) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.origin.label }}
+                    {{ form.origin(class_='form-control', value=character.origin) }}
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group special-input">
+                    {{ form.str.label }}
+                    {{ form.str(class_='form-control', value=character.str) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.per.label }}
+                    {{ form.per(class_='form-control', value=character.per) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.end.label }}
+                    {{ form.end(class_='form-control', value=character.end) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.cha.label }}
+                    {{ form.cha(class_='form-control', value=character.cha) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.int.label }}
+                    {{ form.int(class_='form-control', value=character.int) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.agi.label }}
+                    {{ form.agi(class_='form-control', value=character.agi) }}
+                </div>
+                <div class="form-group special-input">
+                    {{ form.lck.label }}
+                    {{ form.lck(class_='form-control', value=character.lck) }}
+                </div>
+            </div>
+
+            <br>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group skill-input-row1">
+                    {{ form.athletics.label }}
+                    {{ form.athletics(class_='form-control', value=character.athletics)}}
+                </div>
+                <div class="form-group skill-input-row1">
+                    {{ form.barter.label }}
+                    {{ form.barter(class_='form-control', value=character.barter)}}
+                </div>
+                <div class="form-group skill-input-row1">
+                    {{ form.big_guns.label }}
+                    {{ form.big_guns(class_='form-control', value=character.big_guns)}}
+                </div>
+                <div class="form-group skill-input-row1">
+                    {{ form.energy_weapons.label }}
+                    {{ form.energy_weapons(class_='form-control', value=character.energy_weapons)}}
+                </div>
+                <div class="form-group skill-input-row1">
+                    {{ form.explosives.label }}
+                    {{ form.explosives(class_='form-control', value=character.explosives)}}
+                </div>
+                <div class="form-group skill-input-row1">
+                    {{ form.lockpick.label }}
+                    {{ form.lockpick(class_='form-control', value=character.lockpick)}}
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group skill-input-row2">
+                    {{ form.medicine.label }}
+                    {{ form.medicine(class_='form-control', value=character.medicine)}}
+                </div>
+                <div class="form-group skill-input-row2">
+                    {{ form.melee_weapons.label }}
+                    {{ form.melee_weapons(class_='form-control', value=character.melee_weapons)}}
+                </div>
+                <div class="form-group skill-input-row2">
+                    {{ form.pilot.label }}
+                    {{ form.pilot(class_='form-control', value=character.pilot)}}
+                </div>
+                <div class="form-group skill-input-row2">
+                    {{ form.repair.label }}
+                    {{ form.repair(class_='form-control', value=character.repair)}}
+                </div>
+                <div class="form-group skill-input-row2">
+                    {{ form.science.label }}
+                    {{ form.science(class_='form-control', value=character.science)}}
+                </div>
+                <div class="form-group skill-input-row2">
+                    {{ form.small_guns.label }}
+                    {{ form.small_guns(class_='form-control', value=character.small_guns)}}
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group skill-input-row3">
+                    {{ form.sneak.label }}
+                    {{ form.sneak(class_='form-control', value=character.sneak)}}
+                </div>
+                <div class="form-group skill-input-row3">
+                    {{ form.speech.label }}
+                    {{ form.speech(class_='form-control', value=character.speech)}}
+                </div>
+                <div class="form-group skill-input-row3">
+                    {{ form.survival.label }}
+                    {{ form.survival(class_='form-control', value=character.survival)}}
+                </div>
+                <div class="form-group skill-input-row3">
+                    {{ form.throwing.label }}
+                    {{ form.throwing(class_='form-control', value=character.throwing)}}
+                </div>
+                <div class="form-group skill-input-row3">
+                    {{ form.unarmed.label }}
+                    {{ form.unarmed(class_='form-control', value=character.unarmed)}}
+                </div>
+            </div>
+
+            {{ form.submit(class_='btn btn-primary btn-lg') }}
+        </form>
+
+    </div>
 
 {% endblock %}
