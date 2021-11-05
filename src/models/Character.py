@@ -55,7 +55,9 @@ class Character:
         self.generateSavedCharacterFilename()
 
     def generateSavedCharacterFilename(self):
-        self.saveLocation = f'./src/data/saved_data/characters/{self.savedID}.pkl'
+        self.saveLocation = (
+            f'./src/data/saved_data/characters/{self.savedID}.pkl'
+        )
 
     def setDerivedStatistics(self):
         self.carry_weight = 150 + (self.strength * 10)
@@ -63,6 +65,14 @@ class Character:
         self.defense = 2 if self.agility >= 9 else 1
         self.damage_resistance = 0
         self.hp_max = self.endurance + self.luck
+
+    def evaluate_tagged(self, form_keys):
+        tagged = []
+        for key in form_keys:
+            if 'tagged_' in key:
+                skill = key[7:]
+                tagged.append(skill)
+        self.tagged_skills = tagged
 
     def saveCharacter(self):
 

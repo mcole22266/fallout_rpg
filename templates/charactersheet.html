@@ -95,55 +95,55 @@
         <div class="row stats-row">
 
             <div class="col-lg skill-col">
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'athletics' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Athletics: {{ character.athletics }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'barter' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Barter: {{ character.barter }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'big_guns' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Big Guns: {{ character.big_guns }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'energy_weapons' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Energy Weapons: {{ character.energy_weapons }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'explosives' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Explosives: {{ character.explosives }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'lockpick' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Lockpick: {{ character.lockpick }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'medicine' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Medicine: {{ character.medicine }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'melee_weapons' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Melee Weapons: {{ character.melee_weapons }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'pilot' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Pilot: {{ character.pilot }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'repair' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Repair: {{ character.repair }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'science' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Science: {{ character.science }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'small_guns' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Small Guns: {{ character.small_guns }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'sneak' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Sneak: {{ character.sneak }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'speech' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Speech: {{ character.speech }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'survival' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Survival: {{ character.survival }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'throwing' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Throwing: {{ character.throwing }}</p>
                 </div>
-                <div class="row skill-row">
+                <div class="row skill-row {% if 'unarmed' in character.tagged_skills %}skill-tagged{% endif %}">
                     <p class="skill">Unarmed: {{ character.unarmed }}</p>
                 </div>
             </div>

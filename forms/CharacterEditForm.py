@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
+from wtforms import BooleanField, StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
 from src.models.Origin import origin_list
@@ -72,10 +72,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_athletics = BooleanField(
+        'Tagged?',
+    )
+
     barter = SelectField(
         'Barter',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_barter = BooleanField(
+        'Tagged?'
     )
 
     big_guns = SelectField(
@@ -84,10 +92,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_big_guns = BooleanField(
+        'Tagged?'
+    )
+
     energy_weapons = SelectField(
         'Energy Weapons',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_energy_weapons = BooleanField(
+        'Tagged?'
     )
 
     explosives = SelectField(
@@ -96,10 +112,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_explosives = BooleanField(
+        'Tagged?'
+    )
+
     lockpick = SelectField(
         'Lockpick',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_lockpick = BooleanField(
+        'Tagged?'
     )
 
     medicine = SelectField(
@@ -108,10 +132,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_medicine = BooleanField(
+        'Tagged?'
+    )
+
     melee_weapons = SelectField(
         'Melee Weapons',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_melee_weapons = BooleanField(
+        'Tagged?'
     )
 
     pilot = SelectField(
@@ -120,10 +152,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_pilot = BooleanField(
+        'Tagged?'
+    )
+
     repair = SelectField(
         'Repair',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_repair = BooleanField(
+        'Tagged?'
     )
 
     science = SelectField(
@@ -132,10 +172,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_science = BooleanField(
+        'Tagged?'
+    )
+
     small_guns = SelectField(
         'Small Guns',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_small_guns = BooleanField(
+        'Tagged?'
     )
 
     sneak = SelectField(
@@ -144,10 +192,18 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_sneak = BooleanField(
+        'Tagged?'
+    )
+
     speech = SelectField(
         'Speech',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_speech = BooleanField(
+        'Tagged?'
     )
 
     survival = SelectField(
@@ -156,16 +212,28 @@ class CharacterEditForm(FlaskForm):
         choices=list(range(0, 7))
     )
 
+    tagged_survival = BooleanField(
+        'Tagged?'
+    )
+
     throwing = SelectField(
         'Throwing',
         validators=[DataRequired()],
         choices=list(range(0, 7))
     )
 
+    tagged_throwing = BooleanField(
+        'Tagged?'
+    )
+
     unarmed = SelectField(
         'Unarmed',
         validators=[DataRequired()],
         choices=list(range(0, 7))
+    )
+
+    tagged_unarmed = BooleanField(
+        'Tagged?'
     )
 
     submit = SubmitField('Apply Changes')

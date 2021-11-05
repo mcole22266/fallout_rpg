@@ -202,6 +202,8 @@ class Routes:
                 character.throwing = int(request.form['throwing'])
                 character.unarmed = int(request.form['unarmed'])
 
+                character.evaluate_tagged(request.form.keys())
+
                 character.saveCharacter()
 
                 return redirect(f'/character/sheet/{characterID}')
@@ -233,6 +235,24 @@ class Routes:
             form.throwing.default = character.throwing
             form.unarmed.default = character.unarmed
 
+            form.tagged_athletics.default = 'athletics' in character.tagged_skills
+            form.tagged_barter.default = 'barter' in character.tagged_skills
+            form.tagged_big_guns.default = 'big_guns' in character.tagged_skills
+            form.tagged_energy_weapons.default = 'energy_weapons' in character.tagged_skills
+            form.tagged_explosives.default = 'explosives' in character.tagged_skills
+            form.tagged_lockpick.default = 'lockpick' in character.tagged_skills
+            form.tagged_medicine.default = 'medicine' in character.tagged_skills
+            form.tagged_melee_weapons.default = 'melee_weapons' in character.tagged_skills
+            form.tagged_pilot.default = 'pilot  ' in character.tagged_skills
+            form.tagged_repair.default = 'repair' in character.tagged_skills
+            form.tagged_science.default = 'science' in character.tagged_skills
+            form.tagged_small_guns.default = 'small_guns' in character.tagged_skills
+            form.tagged_sneak.default = 'sneak  ' in character.tagged_skills
+            form.tagged_speech.default = 'speech' in character.tagged_skills
+            form.tagged_survival.default = 'survival' in character.tagged_skills
+            form.tagged_throwing.default = 'throwing' in character.tagged_skills
+            form.tagged_unarmed.default = 'unarmed' in character.tagged_skills
+                                                
             form.process()
 
             return render_template(
