@@ -26,7 +26,11 @@
                 </div>
                 <div class="form-group col-md-4">
                     {{ form.origin.label }}
-                    {{ form.origin(class_='form-control', value=character.origin) }}
+                    {% if character.origin %}
+                        {{ form.origin(class_='form-control', value=character.origin.name) }}
+                    {% else %}
+                        {{ form.origin(class_='form-control', value=character.origin) }}
+                    {% endif %}
                 </div>
             </div>
 

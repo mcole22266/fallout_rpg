@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
-from wtforms.fields.core import IntegerField
 from wtforms.validators import DataRequired
+
+from src.models.Origin import origin_list
 
 
 class CharacterEditForm(FlaskForm):
@@ -10,7 +11,7 @@ class CharacterEditForm(FlaskForm):
         'Name',
         validators=[DataRequired()],
         )
-    
+
     lvl = SelectField(
         'Level',
         validators=[DataRequired()],
@@ -20,7 +21,7 @@ class CharacterEditForm(FlaskForm):
     origin = SelectField(
         'Origin',
         validators=[DataRequired()],
-        choices=['Test Origin 1', 'Test Origin 2']
+        choices=[origin.name for origin in origin_list]
     )
 
     str = SelectField(
